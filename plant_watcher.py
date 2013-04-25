@@ -19,10 +19,10 @@ def get_config(fname="plant_watcher.conf"):
 def update_images():
     now = datetime.datetime.now()
     FORMAT = "%Y_%M_%d__%H_%m_%S"
-    if(os.path.exist("static/current.jpg")):
-        shutil.copyfile(
-            "static/current.jpg",
-            "static/archives/%s.jpg" % now.strfrtime(FORMAT)
+    if(os.path.exists("static/current.jpg")):
+        shutil.copy(
+            os.path.abspath(os.getcwd()) + "/static/current.jpg",
+            "static/archives/%s.jpg" % now.strftime(FORMAT)
         )
 
 
