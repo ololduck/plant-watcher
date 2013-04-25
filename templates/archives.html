@@ -5,7 +5,7 @@
 <h1>{{conf.plant_name}}'s archives</h1>
 <p>Back to <a href="/">Home</a></p>
 <div class="thumbnail">
-    <img alt="{{image}}" src="/static/archives/{{ image }}" />
+    <a href="/static/archives/{{ image }}"><img alt="{{image}}" src="/static/archives/{{ image }}" /></a>
     <p>{{image}}</p>
 </div>
 {% endfor %}

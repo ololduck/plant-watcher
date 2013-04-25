@@ -1,8 +1,11 @@
-#content {
+body {
     width: 650px;
     margin-right: auto;
     margin-left: auto;
     text-align: center;
+}
+#footer {
+    font-size: 0.8em;
 }
 
 .thumbnail {

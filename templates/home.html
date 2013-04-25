@@ -1,8 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>{{ conf.plant_name }}</h1>
-<img alt="{{ conf.plant_name }} right now" src="static/current.jpg" />
-<hr/>
-<a href="/archives/">Archives</a>
+<h1>{{ conf.plant_name }}'s current status</h1>
+<p><img alt="{{ conf.plant_name }} right now" src="static/current.jpg" /></p>
+<p><a href="/archives/">Archives</a></p>
 {% endblock %}
