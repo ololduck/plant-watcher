@@ -52,4 +52,4 @@ if __name__ == '__main__':
             exit(0)
     if("debug" in conf):
         app.debug = conf["debug"]
-    app.run()
+    app.run(host='0.0.0.0')
