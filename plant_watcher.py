@@ -9,6 +9,24 @@ import shutil
 from flask import Flask, render_template
 
 
+def check_reqs():
+    error = False
+    try:
+        import flask
+    except ImportError as e:
+        print("error: flask could not been found. Please install flask via 'pip install flask'\n" + str(e))
+        error = True
+    if(not os.path.exists("static") or not os.path.isdir("static")):
+        os.path.mkdir("static")
+    if(not os.path.exists("static/archives") or not os.path.isdir("static/archives")):
+        os.path.mkdir("static/archives")
+    if(error):
+        exit(1)
+
+
+check_reqs()
+
+
 def get_config(fname="plant_watcher.conf"):
     data = {}
     with open(fname, 'r') as f:
@@ -18,11 +36,12 @@ def get_config(fname="plant_watcher.conf"):
 
 def update_images():
     now = datetime.datetime.now()
-    FORMAT = "%Y_%M_%d__%H_%m_%S"
+    FORMAT = "%Y_%M_%d__%H h"
     if(os.path.exists("static/current.jpg")):
         shutil.copy(
             os.path.abspath(os.getcwd()) + "/static/current.jpg",
-            "static/archives/%s.jpg" % now.strftime(FORMAT)
+            os.path.abspath(os.getcwd()) + "/static/archives/%s.jpg"
+            % now.strftime(FORMAT)
         )
 
 
@@ -33,9 +52,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    c = {}
-    c["images"] = os.listdir('static')
-    return render_template("home.html", conf=conf, contexte=c)
+    return render_template("home.html", conf=conf)
 
 
 @app.route('/archives/')
