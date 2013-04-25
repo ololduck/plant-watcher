@@ -47,8 +47,9 @@ def archives():
 if __name__ == '__main__':
     print("Starting plant_watcher...")
     for arg in sys.argv:
-        if(arg == "sort_dirs"):
+        if(arg == "update_images"):
             update_images()
+            exit(0)
     if("debug" in conf):
         app.debug = conf["debug"]
     app.run()
