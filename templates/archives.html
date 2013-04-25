@@ -1,12 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
-{% for image in contexte.images %}
 <h1>{{conf.plant_name}}'s archives</h1>
 <p>Back to <a href="/">Home</a></p>
+{% for image in contexte.images %}
 <div class="thumbnail">
     <a href="/static/archives/{{ image }}"><img alt="{{image}}" src="/static/archives/{{ image }}" /></a>
     <p>{{image}}</p>
 </div>
+{% else %}
+<p>No images yet. Please do come back in one hour, or something like that. It won't move away.</p>
 {% endfor %}
 {% endblock %}
