@@ -69,6 +69,8 @@ if __name__ == '__main__':
         if(arg == "update_images"):
             update_images()
             exit(0)
+        if(arg == "--debug"):
+            conf["debug"] = True
     if("debug" in conf):
         app.debug = conf["debug"]
     app.run(host='0.0.0.0')

@@ -5,12 +5,14 @@ body {
     text-align: center;
 }
 #footer {
+    float: clear;
     font-size: 0.8em;
 }
 
 .thumbnail {
     width: 200px;
     margin: 5px;
+    float: left;
 }
 
 
