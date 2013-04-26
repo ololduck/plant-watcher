@@ -13,25 +13,18 @@ def check_reqs():
     error = False
     try:
         import flask
+        flask  # shut up, linter
     except ImportError as e:
-        print("error: flask could not been found. Please install flask via 'pip install flask'\n" + str(e))
+        print("error: flask could not been found. Please install \
+flask via 'pip install flask'\n" + str(e))
         error = True
     if(not os.path.exists("static") or not os.path.isdir("static")):
         os.path.mkdir("static")
-    if(not os.path.exists("static/archives") or not os.path.isdir("static/archives")):
+    if(not os.path.exists("static/archives") or not os.path.isdir(
+            "static/archives")):
         os.path.mkdir("static/archives")
     if(error):
         exit(1)
-
-
-check_reqs()
-
-
-def get_config(fname="plant_watcher.conf"):
-    data = {}
-    with open(fname, 'r') as f:
-        data = json.loads(f.read())
-    return data
 
 
 def update_images():
@@ -43,6 +36,15 @@ def update_images():
             os.path.abspath(os.getcwd()) + "/static/archives/%s.jpg"
             % now.strftime(FORMAT)
         )
+
+check_reqs()
+
+
+def get_config(fname="plant_watcher.conf"):
+    data = {}
+    with open(fname, 'r') as f:
+        data = json.loads(f.read())
+    return data
 
 
 conf = get_config()
