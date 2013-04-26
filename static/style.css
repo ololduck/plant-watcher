@@ -4,8 +4,9 @@ body {
     margin-left: auto;
     text-align: center;
 }
+
 #footer {
-    float: clear;
+    clear: left;
     font-size: 0.8em;
 }
 
@@ -14,7 +15,6 @@ body {
     margin: 5px;
     float: left;
 }
-
 
 .thumbnail img {
     max-width: 190px;
