@@ -60,7 +60,7 @@ def home():
 @app.route('/archives/')
 def archives():
     c = {}
-    c["images"] = reversed(os.listdir('static/archives'))
+    c["images"] = reversed(sorted(os.listdir('static/archives')))
     return render_template("archives.html", conf=conf, contexte=c)
 
 if __name__ == '__main__':
