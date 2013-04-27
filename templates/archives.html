@@ -3,6 +3,14 @@
 {% block content %}
 <h1>{{conf.plant_name}}'s archives</h1>
 <p>Back to <a href="/">Home</a></p>
+<h2>Time-lapse video</h2>
+<video controls>
+    <source src="/static/movie.webm" type="video/webm" />
+    <source src="/static/movie.ogg" type="video/ogg" />
+    <source src="/static/movie.mpg" type="video/mpeg" />
+</video>
+<hr />
+<h2>Raw images</h2>
 {% for image in contexte.images %}
 <div class="thumbnail">
     <a href="/static/archives/{{ image }}"><img alt="{{image}}" src="/static/archives/{{ image }}" /></a>
